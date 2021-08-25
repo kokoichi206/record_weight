@@ -1,7 +1,6 @@
 import tweepy
 import sys
 import datetime
-import subprocess
 from os import system
 
 import config
@@ -21,8 +20,8 @@ api = tweepy.API(auth)
 system('gnuplot save_weight.plt')
 if len(sys.argv) > 1:
 	if (dt_now.day % 5) == 0:
-		file_names="./last_10_days_weight.png"
-		api.update_with_media(filename=file_names,status=sys.argv[1])
+		file_name = "./last_10_days_weight.png"
+		api.update_with_media(filename=file_name,status=sys.argv[1])
 		print('API post picture and weight SUCCESS')
 	else:
 		api.update_status(sys.argv[1])
